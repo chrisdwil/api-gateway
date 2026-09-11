@@ -293,73 +293,73 @@ The final metric set will be determined during implementation.
 
 Build the smallest useful gateway:
 
-- Accept a request.
-- Authenticate the downstream client.
-- Authenticate with Vendors upstream.
-- Forward a supported request.
-- Return the upstream response.
-- Never expose the upstream credential.
-- Provide basic logging.
+- Accept a request
+- Authenticate the downstream client
+- Authenticate with Vendors upstream
+- Forward a supported request
+- Return the upstream response
+- Never expose the upstream credential
+- Provide basic logging
 
 ### Phase 2 — Caching
 
 Add:
 
-- Deterministic cache keys.
-- TTL.
-- Cache hit/miss tracking.
-- JSON response storage.
-- Cache invalidation strategy.
-- Tests for stale and fresh data.
+- Deterministic cache keys
+- TTL
+- Cache hit/miss tracking
+- JSON response storage
+- Cache invalidation strategy
+- Tests for stale and fresh data
 
 ### Phase 3 — Rate-Limit Controls
 
 Add:
 
-- Client-side limits.
-- Upstream limit awareness.
-- Backoff behavior.
-- Request coalescing where appropriate.
-- Rate-limit metrics.
+- Client-side limits
+- Upstream limit awareness
+- Backoff behavior
+- Request coalescing where appropriate
+- Rate-limit metrics
 
 ### Phase 4 — Observability
 
 Add:
 
-- Structured logs.
-- Metrics.
-- Health/readiness endpoints.
-- Request correlation.
-- Optional tracing.
+- Structured logs
+- Metrics
+- Health/readiness endpoints
+- Request correlation
+- Optional tracing
 
 ### Phase 5 — Containerization & Deployment
 
-Create reproducible deployments using the selected hosting model.
+Create reproducible deployments using the selected hosting model
 
 Potential deliverables:
 
-- Dockerfile.
-- Compose configuration.
-- Environment configuration examples.
-- Health checks.
-- CI pipeline.
-- Security scanning.
-- Deployment documentation.
+- Dockerfile
+- Compose configuration
+- Environment configuration examples
+- Health checks
+- CI pipeline
+- Security scanning
+- Deployment documentation
 
 ### Phase 6 — Engineering Hardening
 
 Investigate:
 
-- Load testing.
-- Failure behavior.
-- Upstream outages.
-- Cache corruption.
-- Database failure.
-- Credential rotation.
-- Concurrent requests.
-- Race conditions.
-- Dependency vulnerabilities.
-- Resource limits.
+- Load testing
+- Failure behavior
+- Upstream outages
+- Cache corruption
+- Database failure
+- Credential rotation
+- Concurrent requests
+- Race conditions
+- Dependency vulnerabilities
+- Resource limits
 
 ## Testing Strategy
 
@@ -501,12 +501,12 @@ The project should therefore favor understandable engineering decisions, reprodu
 
 This project is not initially intended to become:
 
-- A general-purpose enterprise API management platform.
-- A replacement for Vendors API.
-- A hosted commercial service.
-- A system designed around proprietary infrastructure.
-- A demonstration of every available DevOps technology.
-- A benchmark optimized solely for impressive numbers.
+- A general-purpose enterprise API management platform
+- A replacement for Vendors API
+- A hosted commercial service
+- A system designed around proprietary infrastructure
+- A demonstration of every available DevOps technology
+- A benchmark optimized solely for impressive numbers
 
 If a simpler architecture solves the problem, simplicity wins.
 
@@ -516,12 +516,12 @@ This project is intended to remain free and openly available.
 
 The author intends to permit others to:
 
-- Study the source.
-- Run it themselves.
-- Modify it.
-- Learn from it.
-- Use it in their own projects.
-- Contribute improvements.
+- Study the source
+- Run it themselves
+- Modify it
+- Learn from it
+- Use it in their own projects
+- Contribute improvements
 
 The repository will use a permissive open-source license. **MIT is currently the leading candidate**, with BSD-2-Clause and BSD-3-Clause also under consideration.
 
