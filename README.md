@@ -21,25 +21,25 @@ Modern development teams frequently have many tools, scripts, services, CI jobs,
 
 That can create several problems:
 
-- Multiple clients repeatedly request identical or nearly identical data.
-- Upstream API rate limits can become a shared operational constraint.
-- Credentials and vendor tokens can end up distributed across too many clients.
-- Unnecessary upstream traffic can increase latency and, depending on the service, cost.
-- Different development tools may implement API access differently.
-- It can be difficult to understand who is consuming an API, how often, and why.
-- A lack of centralized policy makes it harder to introduce caching, throttling, authentication, auditing, and observability consistently.
+- Multiple clients repeatedly request identical or nearly identical data
+- Upstream API rate limits can become a shared operational constraint
+- Credentials and vendor tokens can end up distributed across too many clients
+- Unnecessary upstream traffic can increase latency and, depending on the service, cost
+- Different development tools may implement API access differently
+- It can be difficult to understand who is consuming an API, how often, and why?
+- A lack of centralized policy makes it harder to introduce caching, throttling, authentication, auditing, and observability consistently
 
 This project explores whether a lightweight API gateway/proxy can provide a useful consolidation layer without becoming an unnecessarily complicated platform.
 
 ## Core Goals
 
 ### 1. LLM Integration, Cost and Optimization
-- Track prompt and completion tokens per client to monitor and control upstream LLM vendor spend.
-- Passthrough Server-Sent Events (SSE) and token-streaming responses without buffering or extra latency.
-- Cache exact and semantic prompt results to avoid redundant, expensive model calls.
-- Unify request and response formats across OpenAI, Anthropic, and other vendors to make swapping models seamless.
-- Route requests to secondary models or providers automatically when primary endpoints hit rate limits or downtime.
-- Intercept requests to redact sensitive PII and enforce policy constraints before reaching upstream models.
+- Track prompt and completion tokens per client to monitor and control upstream LLM vendor spend
+- Passthrough Server-Sent Events (SSE) and token-streaming responses without buffering or extra latency
+- Cache exact and semantic prompt results to avoid redundant, expensive model calls
+- Unify request and response formats across OpenAI, Anthropic, and other vendors to make swapping models seamless
+- Route requests to secondary models or providers automatically when primary endpoints hit rate limits or downtime
+- Intercept requests to redact sensitive PII and enforce policy constraints before reaching upstream models
 
 ### 2. Security Consolidation
 
@@ -47,12 +47,12 @@ Provide a controlled boundary between internal clients and Vendor APIs.
 
 Potential responsibilities include:
 
-- Keeping Vendor API credentials/tokens on the gateway rather than distributing them to every client.
-- Injecting upstream authentication only when required.
-- Preventing credentials from being returned to downstream clients.
-- Applying authentication and authorization policies at the gateway.
-- Providing a foundation for auditing and security logging.
-- Supporting least-privilege access patterns.
+- Keeping Vendor API credentials/tokens on the gateway rather than distributing them to every client
+- Injecting upstream authentication only when required
+- Preventing credentials from being returned to downstream clients
+- Applying authentication and authorization policies at the gateway
+- Providing a foundation for auditing and security logging
+- Supporting least-privilege access patterns
 
 **Important:** This project should never contain real API credentials, tokens, secrets, or production account information.
 
@@ -62,13 +62,13 @@ Explore ways to make upstream API consumption more predictable.
 
 Potential capabilities:
 
-- Request throttling.
-- Per-client rate limits.
-- Shared upstream rate-limit awareness.
-- Cache-assisted request reduction.
-- Request coalescing for identical simultaneous requests.
-- Backoff handling.
-- Visibility into upstream rate-limit consumption.
+- Request throttling
+- Per-client rate limits
+- Shared upstream rate-limit awareness
+- Cache-assisted request reduction
+- Request coalescing for identical simultaneous requests
+- Backoff handling
+- Visibility into upstream rate-limit consumption
 
 The objective is not to magically eliminate upstream limits. The objective is to use them intelligently and avoid unnecessary consumption.
 
@@ -78,16 +78,16 @@ Cache safe-to-cache Vendor API responses so repeated requests can potentially be
 
 The initial design will investigate:
 
-- PostgreSQL JSONB.
-- Redis or another dedicated cache.
-- In-memory caching.
-- HTTP-aware caching.
-- TTL-based expiration.
-- ETags / conditional requests where appropriate.
-- Cache invalidation.
-- Cache key design.
-- Cache size and retention.
-- Serialization/deserialization overhead.
+- PostgreSQL JSONB
+- Redis or another dedicated cache
+- In-memory caching
+- HTTP-aware caching
+- TTL-based expiration
+- ETags / conditional requests where appropriate
+- Cache invalidation
+- Cache key design
+- Cache size and retention
+- Serialization/deserialization overhead
 
 PostgreSQL JSONB is an explicit candidate because the original prototype used PostgreSQL to store structured API responses. It is **not yet the selected solution**.
 
@@ -97,15 +97,15 @@ The gateway should make API consumption measurable.
 
 Potential metrics include:
 
-- Upstream requests avoided through caching.
-- Cache hit/miss ratio.
-- Requests by client.
-- Requests by endpoint.
-- Upstream response latency.
-- Gateway response latency.
-- Rate-limit consumption.
-- Error rates.
-- Approximate infrastructure/resource cost.
+- Upstream requests avoided through caching
+- Cache hit/miss ratio
+- Requests by client
+- Requests by endpoint
+- Upstream response latency
+- Gateway response latency
+- Rate-limit consumption
+- Error rates
+- Approximate infrastructure/resource cost
 
 The project will distinguish between **actual provider costs** and **resource/cost proxies** rather than claiming that every avoided request has a direct dollar value.
 
