@@ -197,14 +197,14 @@ Potential alternatives or future implementations may include:
 
 The language decision should be driven by:
 
-- Development speed.
-- Runtime characteristics.
-- Concurrency model.
-- Maintainability.
-- Ecosystem maturity.
-- Developer accessibility.
-- Operational simplicity.
-- Suitability for a gateway/proxy workload.
+- Development speed
+- Runtime characteristics
+- Concurrency model
+- Maintainability
+- Ecosystem maturity
+- Developer accessibility
+- Operational simplicity
+- Suitability for a gateway/proxy workload
 
 A multi-language implementation is **not a goal by itself**. Additional implementations should exist only when they demonstrate a meaningful architectural or developer-experience benefit.
 
@@ -230,20 +230,20 @@ The gateway should be designed around the principle that downstream clients do *
 
 Planned areas of investigation:
 
-- Secret management.
-- Environment variables for local development.
-- Docker/Kubernetes secret mechanisms where appropriate.
-- Token rotation.
-- Least privilege.
-- Client authentication.
-- Authorization.
-- Request validation.
-- Audit logging.
-- Log redaction.
-- TLS.
-- Dependency security.
-- Container security.
-- Supply-chain considerations.
+- Secret management
+- Environment variables for local development
+- Docker/Kubernetes secret mechanisms where appropriate
+- Token rotation
+- Least privilege
+- Client authentication
+- Authorization
+- Request validation
+- Audit logging
+- Log redaction
+- TLS
+- Dependency security
+- Container security
+- Supply-chain considerations
 
 No real credentials should ever be committed to this repository.
 
@@ -253,14 +253,14 @@ A portfolio-quality implementation should make its behavior visible.
 
 Potential observability stack:
 
-- Structured application logs.
-- Request IDs / correlation IDs.
-- Metrics.
-- Health checks.
-- Readiness checks.
-- OpenTelemetry.
-- Prometheus-compatible metrics.
-- Grafana or another visualization layer.
+- Structured application logs
+- Request IDs / correlation IDs
+- Metrics
+- Health checks
+- Readiness checks
+- OpenTelemetry
+- Prometheus-compatible metrics
+- Grafana or another visualization layer
 
 Example metrics:
 
@@ -281,13 +281,13 @@ The final metric set will be determined during implementation.
 
 ### Phase 0 — Architecture
 
-- Define the problem precisely.
-- Document assumptions.
-- Identify security boundaries.
-- Compare deployment models.
-- Compare language options.
-- Compare caching strategies.
-- Define initial API surface.
+- Define the problem precisely
+- Document assumptions
+- Identify security boundaries
+- Compare deployment models
+- Compare language options
+- Compare caching strategies
+- Define initial API surface
 
 ### Phase 1 — Minimal Working Gateway
 
